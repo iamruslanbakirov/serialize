@@ -1,0 +1,39 @@
+{
+  "name": "serialize",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:commonjs": "rimraf lib && tsc --target es5 --outDir lib --module commonjs --declaration",
+    "build:es": "rimraf es && tsc --target es6 --outDir es --module es6",
+    "build": "npm run build:commonjs && npm run build:es",
+    "ts": "ts-node src/",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamruslanbakirov/serialize.git"
+  },
+  "author": "Ruslan Bakirov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamruslanbakirov/serialize/issues"
+  },
+  "homepage": "https://github.com/iamruslanbakirov/serialize#readme",
+  "dependencies": {
+    "class-validator": "^0.9.1"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.3",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.3.3333"
+  },
+  "files": [
+    "es",
+    "lib"
+  ],
+  "types": "./lib/index.d.ts",
+  "jsnext:main": "./es/index.js",
+  "module": "./es/index.js"
+}
